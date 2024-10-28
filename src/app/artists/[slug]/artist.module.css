@@ -1,0 +1,13 @@
+.artistLayout {
+    display: grid;
+    gap: 2rem;
+    line-height: 1.5;
+
+    @media (width > 800px) {
+        grid: auto / minmax(0, 400px) 1fr;
+    }
+
+    p {
+        color: #aaa;
+    }
+}

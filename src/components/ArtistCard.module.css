@@ -1,0 +1,35 @@
+.artist {
+    :has(> &) {
+        display: grid;
+        grid: auto / repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        list-style-type: '';
+        padding: 0;
+        margin: 0;
+    }
+
+    position: relative;
+
+    h3 {
+        inline-size: fit-content;
+        color: oklch(80% 0.05 272.51);
+    }
+
+    a::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    figure {
+        margin: 0;
+        padding: 0;
+    }
+
+    svg {
+        display: block;
+        inline-size: 24px;
+        block-size: 24px;
+        margin: 0.5rem;
+    }
+}
