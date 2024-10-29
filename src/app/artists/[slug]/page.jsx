@@ -16,22 +16,17 @@ export async function generateStaticParams() {
 
 async function Artist({ params }) {
   const { slug } = await params;
-  const [artist] = await getDataById("artists", slug);
+  const [{ image, name, bio, songs }] = await getDataById("artists", slug);
 
   return (
     <div className={styles.artistLayout}>
-      <Image
-        width={400}
-        height={400}
-        src={`/imgs/${artist.image}`}
-        alt="{artist.name}"
-      />
+      <Image width={400} height={400} src={`/imgs/${image}`} alt="{name}" />
       <div>
-        <h1>{artist.name}</h1>
-        <p>{artist.bio}</p>
-        {artist.song && (
+        <h1>{name}</h1>
+        <p>{bio}</p>
+        {songs && (
           <ul>
-            {artist.songs.map((song) => (
+            {songs.map((song) => (
               <li key={song}>{song}</li>
             ))}
           </ul>
